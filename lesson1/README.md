@@ -2,8 +2,8 @@
 
 # Init
 
-![Инициализация](/docs/Init_screen.png)
+![Инициализация](docs/Init_screen.png)
 
 # Build
 
-![Сборка](/docs/build.png)
+![Сборка](docs/build.png)
