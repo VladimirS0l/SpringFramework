@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  students:
+    build: .
+    container_name: students
+    ports:
+      - "8000:8000"
+    environment:
+      SERVER_PORT: "8000"
+
+
+
+
