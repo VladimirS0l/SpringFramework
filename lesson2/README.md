@@ -7,4 +7,4 @@
 * Для запуска приложения в докере открыть терминал из папки `lesson2`,
 ввести команду `docker compose up --build`
 
-* Локальный адрес для работы с приложением: `http://localhost:8000/swagger-ui/index.html`
+* Перейти по ссылке для работы с приложением: http://localhost:8000/swagger-ui/index.html
