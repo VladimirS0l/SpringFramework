@@ -1,0 +1,6 @@
+server:
+  port: 8000
+
+application:
+  issue:
+    max-allowed-books: 3
