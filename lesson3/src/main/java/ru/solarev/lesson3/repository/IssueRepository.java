@@ -1,5 +1,6 @@
 package ru.solarev.lesson3.repository;
 
+import lombok.Getter;
 import org.springframework.stereotype.Repository;
 import ru.solarev.lesson3.model.Issue;
 
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 @Repository
 public class IssueRepository {
 
+  @Getter
   private final List<Issue> issues;
 
   public IssueRepository() {

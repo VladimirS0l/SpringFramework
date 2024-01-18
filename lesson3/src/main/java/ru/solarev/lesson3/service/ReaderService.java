@@ -10,6 +10,8 @@ import ru.solarev.lesson3.repository.ReaderRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -38,5 +40,21 @@ public class ReaderService {
 
     public List<Issue> getAllIssuesByReaderId(long idReader) {
         return issueRepository.findAllIssuesByReaderId(idReader);
+    }
+
+    public List<Reader> getAllReadersWhoAllowedBook() {
+        Set<Long> usersAllowedBook = issueRepository.getIssues()
+                .stream()
+                .filter(issue -> issue.getReturned_at() == null)
+                .map(Issue::getReaderId)
+                .collect(Collectors.toSet());
+        return readerRepository.getReaders()
+                .stream()
+                .filter(reader -> usersAllowedBook.contains(reader.getId()))
+                .collect(Collectors.toList());
+    }
+
+    public List<Reader> getAllReaders() {
+        return readerRepository.getReaders();
     }
 }

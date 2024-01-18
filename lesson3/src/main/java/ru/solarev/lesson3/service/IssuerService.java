@@ -11,6 +11,7 @@ import ru.solarev.lesson3.repository.IssueRepository;
 import ru.solarev.lesson3.repository.ReaderRepository;
 
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -50,12 +51,12 @@ public class IssuerService {
     return issue;
   }
 
-  public int getAllow() {
-    return maxAllowedBooks;
-  }
-
   public void returnBook(long issueId) {
     issueRepository.returnBook(issueId);
+  }
+
+  public List<Issue> getAllIssues() {
+    return issueRepository.getIssues();
   }
 
 }

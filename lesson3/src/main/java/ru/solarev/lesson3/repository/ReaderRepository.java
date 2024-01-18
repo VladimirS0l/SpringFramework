@@ -1,6 +1,7 @@
 package ru.solarev.lesson3.repository;
 
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import org.springframework.stereotype.Repository;
 import ru.solarev.lesson3.model.Reader;
 
@@ -11,6 +12,7 @@ import java.util.Objects;
 @Repository
 public class ReaderRepository {
 
+  @Getter
   private final List<Reader> readers;
 
   public ReaderRepository() {
