@@ -8,7 +8,6 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@RequiredArgsConstructor
 public class Reader {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
