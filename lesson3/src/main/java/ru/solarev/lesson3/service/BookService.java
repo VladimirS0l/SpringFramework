@@ -20,46 +20,44 @@ public class BookService {
     private final IssueRepository issueRepository;
 
     public Book getBookById(Long id) {
-        Book book = bookRepository.getBookById(id);
-        if (book == null) {
-            throw new NoSuchElementException("Не найдена книга с идентификатором \"" + id + "\"");
-        }
-        return book;
+        return bookRepository.findById(id)
+                .orElseThrow(() ->
+                        new NoSuchElementException("Не найдена книга с идентификатором \"" + id + "\""));
     }
 
     public Book deleteBookById(long id) {
         Book book = getBookById(id);
-        bookRepository.deleteBook(book);
+        bookRepository.delete(book);
         return book;
     }
 
     public Book createBook(Book book) {
-        return bookRepository.saveBook(book);
+        return bookRepository.save(book);
     }
 
     public List<Book> getAllFreeBook() {
-        Set<Long> allowedBookId = issueRepository.getIssues().stream()
+        Set<Long> allowedBookId = issueRepository.findAll().stream()
                 .filter(book -> book.getReturned_at() == null)
                 .map(Issue::getBookId)
                 .collect(Collectors.toSet());
-        List<Book> books = bookRepository.getBooks();
+        List<Book> books = bookRepository.findAll();
         return books.stream().filter(book -> !allowedBookId.contains(book.getId()))
                 .collect(Collectors.toList());
     }
 
     public List<Book> getBooksByReaderId(long readerId) {
-        Set<Long> booksId = issueRepository.getIssues()
+        Set<Long> booksId = issueRepository.findAll()
                 .stream()
                 .filter(issue -> issue.getReaderId() == readerId)
                 .map(Issue::getBookId)
                 .collect(Collectors.toSet());
-        List<Book> books = bookRepository.getBooks();
+        List<Book> books = bookRepository.findAll();
         return books.stream().filter(book -> booksId.contains(book.getId()))
                 .collect(Collectors.toList());
 
     }
 
     public List<Book> getAllBooks() {
-        return bookRepository.getBooks();
+        return bookRepository.findAll();
     }
 }

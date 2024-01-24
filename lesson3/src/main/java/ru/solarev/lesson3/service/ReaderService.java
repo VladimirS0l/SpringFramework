@@ -21,40 +21,38 @@ public class ReaderService {
     private final IssueRepository issueRepository;
 
     public Reader getReaderById(Long id) {
-        Reader reader = readerRepository.getReaderById(id);
-        if (reader == null) {
-            throw new NoSuchElementException("Не найден читатель с идентификатором \"" + id + "\"");
-        }
-        return reader;
+        return readerRepository.findById(id)
+                .orElseThrow(() ->
+                        new NoSuchElementException("Не найден читатель с идентификатором \"" + id + "\""));
     }
 
     public Reader deleteReaderById(long id) {
         Reader reader = getReaderById(id);
-        readerRepository.deleteReader(reader);
+        readerRepository.delete(reader);
         return reader;
     }
 
     public Reader createReader(Reader reader) {
-        return readerRepository.saveReader(reader);
+        return readerRepository.save(reader);
     }
 
     public List<Issue> getAllIssuesByReaderId(long idReader) {
-        return issueRepository.findAllIssuesByReaderId(idReader);
+        return issueRepository.findAllByReaderId(idReader);
     }
 
     public List<Reader> getAllReadersWhoAllowedBook() {
-        Set<Long> usersAllowedBook = issueRepository.getIssues()
+        Set<Long> usersAllowedBook = issueRepository.findAll()
                 .stream()
                 .filter(issue -> issue.getReturned_at() == null)
                 .map(Issue::getReaderId)
                 .collect(Collectors.toSet());
-        return readerRepository.getReaders()
+        return readerRepository.findAll()
                 .stream()
                 .filter(reader -> usersAllowedBook.contains(reader.getId()))
                 .collect(Collectors.toList());
     }
 
     public List<Reader> getAllReaders() {
-        return readerRepository.getReaders();
+        return readerRepository.findAll();
     }
 }

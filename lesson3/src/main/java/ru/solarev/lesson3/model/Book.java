@@ -1,19 +1,17 @@
 package ru.solarev.lesson3.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
+@Entity
+@Table(name = "books")
+@Getter
+@Setter
+@NoArgsConstructor
 @RequiredArgsConstructor
 public class Book {
-
-  public static long sequence = 1L;
-
-  private final long id;
-  private final String name;
-
-  public Book(String name) {
-    this(sequence++, name);
-  }
-
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
+  private String name;
 }

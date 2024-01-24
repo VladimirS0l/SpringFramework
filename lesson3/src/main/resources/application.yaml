@@ -4,3 +4,10 @@ server:
 application:
   issue:
     max-allowed-books: 3
+
+spring:
+  datasource:
+    url: jdbc:postgresql://task-management-postgres:5432/postgres
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
