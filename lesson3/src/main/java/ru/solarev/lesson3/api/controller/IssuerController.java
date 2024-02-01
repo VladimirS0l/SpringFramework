@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/issue")
+@RequestMapping("issue")
 @Tag(name = "Выдачи книг", description = "Методы для выдачи книг")
 public class IssuerController {
 
