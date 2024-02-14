@@ -77,16 +77,18 @@ public class SecurityConfig {
                                             response.getWriter()
                                                     .write("Необходимо авторизоваться.");
                                         }))
+//                .authorizeHttpRequests(auth ->
+//                        auth.requestMatchers("/v1/auth/**", "/v3/api-docs/**",
+//                                "/swagger-ui/**", "/v1/users/**").permitAll())
+//                .authorizeHttpRequests(auth ->
+//                        auth.requestMatchers("/reader/**").hasRole("READER"))
+//                .authorizeHttpRequests(auth ->
+//                        auth.requestMatchers("/book/**").authenticated())
+//                .authorizeHttpRequests(auth ->
+//                        auth.requestMatchers("/issue/**").hasRole("ADMIN"))
+//                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/v1/auth/**", "/v3/api-docs/**",
-                                "/swagger-ui/**", "/v1/users/**").permitAll())
-                .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/reader/**").hasRole("READER"))
-                .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/book/**").authenticated())
-                .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/issue/**").hasRole("ADMIN"))
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+                        auth.anyRequest().permitAll())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())

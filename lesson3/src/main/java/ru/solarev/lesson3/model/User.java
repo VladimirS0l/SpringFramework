@@ -21,7 +21,7 @@ public class User implements UserDetails, Serializable {
     private String email;
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

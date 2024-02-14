@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/les9api" />
+    <file type="web" url="file://$PROJECT_DIR$/les9bookService" />
+    <file type="web" url="file://$PROJECT_DIR$/les9issue" />
+    <file type="web" url="file://$PROJECT_DIR$/les9test" />
     <file type="web" url="file://$PROJECT_DIR$/lesson1" />
     <file type="web" url="file://$PROJECT_DIR$/lesson2" />
     <file type="web" url="file://$PROJECT_DIR$/lesson3" />

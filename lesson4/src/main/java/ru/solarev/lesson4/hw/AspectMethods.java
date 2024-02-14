@@ -46,6 +46,7 @@ public class AspectMethods {
         } catch (RuntimeException runtimeException) {
             for (int i = 0; i < exeptions.length; i++) {
                 if (exeptions[i] == runtimeException.getClass()) {
+                    log.error("Catch exception: {}, class = {}", runtimeException.getMessage(), runtimeException.getClass());
                     throw runtimeException;
                 }
             }

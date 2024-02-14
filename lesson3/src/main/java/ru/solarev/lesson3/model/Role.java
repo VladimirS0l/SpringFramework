@@ -18,7 +18,7 @@ public class Role implements GrantedAuthority, Serializable {
     private Integer id;
     private String role;
     @ManyToMany(mappedBy = "roles")
-    private List<Role> roles;
+    private List<User> users;
 
     @Override
     public String getAuthority() {

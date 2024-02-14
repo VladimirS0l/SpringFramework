@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/SpringFramework.iml" filepath="$PROJECT_DIR$/.idea/SpringFramework.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson2.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson2.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson3.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson3.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson3.test.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson3.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson4.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson4.main.iml" />
     </modules>
   </component>
 </project>

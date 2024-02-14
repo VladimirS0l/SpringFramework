@@ -10,6 +10,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @Schema(description = "Модель читателя")
+@AllArgsConstructor
 public class Reader {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
